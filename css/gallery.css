@@ -1,0 +1,105 @@
+/* Project gallery masonry */
+.gallery-section { padding-bottom: var(--space-3xl); }
+
+.gallery-masonry {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  column-count: 1;
+  column-gap: 1rem;
+}
+@media (min-width: 520px) { .gallery-masonry { column-count: 2; } }
+@media (min-width: 900px) { .gallery-masonry { column-count: 3; } }
+@media (min-width: 1200px) { .gallery-masonry { column-count: 4; } }
+
+.gallery-tile {
+  display: block;
+  break-inside: avoid;
+  position: relative;
+  width: 100%;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--color-black-2);
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.gallery-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.gallery-tile img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.65s var(--ease-soft);
+}
+.gallery-tile:hover img { transform: scale(1.05); }
+.gallery-tile__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10, 10, 11, 0.85) 100%);
+  pointer-events: none;
+}
+.gallery-tile__cap {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-white-warm);
+  z-index: 2;
+}
+
+/* Lightbox */
+.gallery-lb {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(5, 5, 5, 0.94);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease);
+}
+.gallery-lb.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.gallery-lb__inner {
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+}
+.gallery-lb__img {
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+.gallery-lb__close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-black-3);
+  border: 1px solid var(--glass-border);
+  color: var(--color-white-warm);
+  font-size: 1.2rem;
+}
+.gallery-lb__cap {
+  text-align: center;
+  margin-top: 12px;
+  color: var(--color-white-dim);
+  font-size: 0.9rem;
+}
