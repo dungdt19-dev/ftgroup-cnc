@@ -351,6 +351,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-color: var(--color-red-soft);
 }
 .contact-chip--zalo { border-color: rgba(0, 104, 255, 0.4); }
+.btn-zalo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 .contact-chip--messenger { border-color: rgba(0, 132, 255, 0.4); }
 
 /* Highlight cards (services) */
@@ -539,7 +544,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 .float-btn:hover { transform: scale(1.1); }
 .float-btn svg { width: 22px; height: 22px; }
-.float-zalo { background: #0068ff; }
+.float-zalo { background: #fff; }
 .float-messenger { background: linear-gradient(135deg, #00b2ff, #006aff); }
 .float-call {
   background: var(--grad-red);

@@ -1,3 +1,17 @@
+/* Zalo brand icon (assets/images/zalo.webp) */
+.zalo-icon {
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.contact-chip .zalo-icon { width: 18px; height: 18px; }
+.btn-zalo .zalo-icon { width: 20px; height: 20px; }
+.btn-pricing-zalo .zalo-icon { width: 18px; height: 18px; }
+.social-btn .zalo-icon { width: 20px; height: 20px; }
+.float-zalo .zalo-icon { width: 34px; height: 34px; }
+.mobile-contact-bar .zalo-icon { width: 22px; height: 22px; }
+.zalo-icon--qr { width: 100%; height: 100%; }
+
 /* Sticky CTA bar, mobile quick contact */
 .sticky-cta {
   position: fixed;
@@ -71,6 +85,7 @@
 }
 .mobile-contact-bar a:last-child { border-right: none; }
 .mobile-contact-bar a svg { width: 20px; height: 20px; }
+.mobile-contact-bar a .zalo-icon { width: 22px; height: 22px; }
 .mobile-contact-bar a.mobile-bar-call {
   background: var(--grad-red);
   color: var(--color-white-warm);
