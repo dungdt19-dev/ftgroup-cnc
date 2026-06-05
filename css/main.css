@@ -114,15 +114,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   overflow: hidden;
   background: var(--color-black);
 }
-.hero-media {
-  position: absolute; inset: 0; z-index: 0;
-  overflow: hidden;
-}
-.hero-media img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  animation: slowZoom 18s var(--ease-soft) infinite alternate;
-}
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background:

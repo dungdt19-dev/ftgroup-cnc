@@ -30,7 +30,8 @@
   transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
 }
 .social-btn svg { width: 16px; height: 16px; }
-.social-btn .zalo-icon { width: 20px; height: 20px; }
+.social-btn .zalo-icon,
+.social-btn .fb-icon { width: 20px; height: 20px; }
 .social-btn:hover {
   background: var(--grad-red);
   border-color: var(--color-red-soft);
