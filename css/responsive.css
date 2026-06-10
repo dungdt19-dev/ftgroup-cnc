@@ -11,6 +11,7 @@
   .hero-contact-chips { margin-left: 0; }
   .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .highlight-cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-grid { grid-template-columns: 1fr; }
   .contact-layout {
     grid-template-columns: 1fr 1fr;
@@ -44,6 +45,7 @@
   .hero-title { max-width: none; }
   .price-grid { grid-template-columns: 1fr; }
   .highlight-cards-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
   .machine-grid { grid-template-columns: 1fr; }
   .process-row { grid-template-columns: 1fr; }
   .intro-stat-row { grid-template-columns: 1fr 1fr; }

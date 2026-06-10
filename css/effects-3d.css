@@ -1,0 +1,196 @@
+/* 3D depth — cards, hero, gallery, sections */
+:root {
+  --shadow-3d:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    0 24px 48px rgba(0, 0, 0, 0.35);
+  --shadow-3d-hover:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 16px 40px rgba(0, 0, 0, 0.55),
+    0 32px 64px rgba(122, 31, 43, 0.22);
+  --perspective: 1200px;
+}
+
+/* Ambient depth on hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 12%;
+  right: 8%;
+  width: min(420px, 50vw);
+  height: min(420px, 50vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--red-soft-rgb), 0.28) 0%, transparent 68%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatOrb 14s var(--ease-soft) infinite alternate;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 18%;
+  left: 5%;
+  width: min(320px, 40vw);
+  height: min(320px, 40vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--red-rgb), 0.2) 0%, transparent 70%);
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatOrb 18s var(--ease-soft) infinite alternate-reverse;
+}
+@keyframes floatOrb {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(20px, -24px, 0) scale(1.08); }
+}
+
+.hero-overlay { z-index: 1; }
+.hero-grain { z-index: 2; }
+.hero-inner { z-index: 3; }
+
+/* 3D card base */
+.card-3d,
+.highlight-card,
+.machine-card,
+.gallery-tile,
+.hero-pillar,
+.hero-contact-strip,
+.testimonial,
+.intro-stat-card,
+.blog-card,
+.price-advantage-card,
+.about-visual {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.highlight-card,
+.machine-card,
+.gallery-tile,
+.blog-card {
+  box-shadow: var(--shadow-3d);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.highlight-card:hover,
+.machine-card:hover,
+.gallery-tile:hover,
+.blog-card:hover {
+  box-shadow: var(--shadow-3d-hover);
+}
+
+.highlight-card:hover {
+  transform: translateY(-8px) rotateX(2deg);
+}
+.machine-card:hover {
+  transform: translateY(-8px) rotateX(1.5deg);
+}
+.gallery-tile:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+.blog-card:hover {
+  transform: translateY(-10px) rotateX(2deg);
+}
+
+.hero-pillar {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 12px 32px rgba(0, 0, 0, 0.4);
+}
+.hero-pillar:hover {
+  transform: translateY(-6px) translateZ(12px);
+  box-shadow: var(--shadow-3d-hover);
+}
+
+.hero-contact-strip {
+  box-shadow: var(--shadow-3d);
+}
+
+.hero-title {
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 8px 32px rgba(var(--red-rgb), 0.35);
+}
+
+.testimonial {
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--glass-border);
+}
+.testimonial:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-3d);
+}
+
+.about-visual {
+  box-shadow: var(--shadow-3d);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.about-visual:hover {
+  transform: translateY(-6px) rotateY(-1deg);
+  box-shadow: var(--shadow-3d-hover);
+}
+
+.intro-stat-card {
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.intro-stat-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-3d);
+}
+
+/* Tilt container (JS-driven) */
+.tilt-3d {
+  transition: transform 0.15s var(--ease-soft);
+}
+.tilt-3d.is-tilting {
+  transition: none;
+}
+
+/* Section depth divider */
+.section-head .section-title {
+  filter: drop-shadow(0 4px 20px rgba(var(--red-rgb), 0.25));
+}
+
+.cta-band__inner {
+  box-shadow: var(--shadow-3d);
+  border: 1px solid rgba(var(--red-soft-rgb), 0.25);
+}
+
+.price-table-wrap,
+.contact-info-panel,
+.price-card {
+  box-shadow: var(--shadow-3d);
+  border-radius: var(--radius-md);
+}
+
+.price-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-3d-hover);
+}
+
+.process-step {
+  box-shadow: var(--shadow-card);
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.price-advantage-card:hover,
+.process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-3d);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after { animation: none; }
+  .tilt-3d { transition: none; }
+  .highlight-card:hover,
+  .machine-card:hover,
+  .gallery-tile:hover,
+  .blog-card:hover,
+  .hero-pillar:hover,
+  .about-visual:hover { transform: none; }
+}

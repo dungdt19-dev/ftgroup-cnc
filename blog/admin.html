@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Quản Trị Blog — FT GROUP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body style="background:var(--color-black)">
+
+<div class="admin-wrap">
+  <p class="article-breadcrumb"><a href="../index.html">Trang chủ</a> · <a href="index.html">Blog</a> · Quản trị</p>
+  <h1 style="font-size:1.8rem;color:var(--color-white-warm);margin-bottom:var(--space-md)">Quản trị bài viết</h1>
+  <p style="color:var(--color-white-dim);margin-bottom:var(--space-lg);line-height:1.7">
+    Thêm mục JSON vào <code style="color:var(--color-red-bright)">blog/data/posts.json</code>, tạo file <code style="color:var(--color-red-bright)">blog/[slug].html</code> với nội dung bài, cập nhật <code style="color:var(--color-red-bright)">sitemap.xml</code>.
+  </p>
+
+  <div class="admin-panel">
+    <h2>Bài viết hiện có</h2>
+    <div id="adminPostList">Đang tải…</div>
+  </div>
+
+  <div class="admin-panel">
+    <h2>Tạo mục bài viết mới (JSON)</h2>
+    <form id="adminForm">
+      <div class="admin-field">
+        <label>Tiêu đề bài viết (H1)</label>
+        <input type="text" name="title" required placeholder="VD: In Bạt Hiflex: Hướng Dẫn Chọn Chất Liệu">
+      </div>
+      <div class="admin-field">
+        <label>Slug (URL)</label>
+        <input type="text" name="slug" placeholder="in-bat-hiflex-huong-dan">
+        <button type="button" class="btn btn-ghost" id="genSlug" style="margin-top:8px">Tạo slug từ tiêu đề</button>
+      </div>
+      <div class="admin-field">
+        <label>Meta Title (SEO)</label>
+        <input type="text" name="metaTitle" placeholder="Tiêu đề hiển thị trên Google">
+      </div>
+      <div class="admin-field">
+        <label>Meta Description</label>
+        <textarea name="metaDescription" placeholder="Mô tả 150–160 ký tự"></textarea>
+      </div>
+      <div class="admin-field">
+        <label>Mô tả ngắn (excerpt)</label>
+        <textarea name="excerpt" required></textarea>
+      </div>
+      <div class="admin-field">
+        <label>Từ khóa (phẩy)</label>
+        <input type="text" name="keywords" placeholder="in bạt, decal, CNC">
+      </div>
+      <div class="admin-field">
+        <label>Chuyên mục</label>
+        <select name="category">
+          <option>Kiến thức</option>
+          <option>Hướng dẫn</option>
+          <option>Tin tức</option>
+        </select>
+      </div>
+      <div class="admin-field">
+        <label>Ảnh đại diện (đường dẫn)</label>
+        <input type="text" name="image" value="assets/images/may-moc/may-in-bat.jpg">
+      </div>
+      <div class="admin-field">
+        <label>Alt ảnh</label>
+        <input type="text" name="imageAlt">
+      </div>
+      <div class="admin-field">
+        <label>Ngày đăng</label>
+        <input type="date" name="date" value="2026-05-20">
+      </div>
+      <div class="admin-field">
+        <label>Thời gian đọc</label>
+        <input type="text" name="readTime" value="6 phút">
+      </div>
+      <div class="admin-field">
+        <label>Nổi bật trang chủ</label>
+        <select name="featured">
+          <option value="false">Không</option>
+          <option value="true">Có</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Tạo JSON mục bài viết</button>
+    </form>
+    <div class="admin-field" style="margin-top:var(--space-md)">
+      <label>Sao chép vào posts.json</label>
+      <textarea id="jsonOutput" class="admin-output" readonly placeholder="JSON sẽ hiện ở đây…"></textarea>
+    </div>
+  </div>
+</div>
+
+<script src="../js/blog-admin.js" defer></script>
+</body>
+</html>
